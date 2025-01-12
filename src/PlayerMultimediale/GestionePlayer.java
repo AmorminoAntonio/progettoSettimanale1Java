@@ -8,7 +8,7 @@ public class GestionePlayer {
 
 
         Scanner sc = new Scanner(System.in);
-        elementiMultimediali[] lista = new elementiMultimediali[2];
+        elementiMultimediali[] lista = new elementiMultimediali[5];
 
 
         for (int i = 0; i < lista.length; i++) {
@@ -21,13 +21,13 @@ public class GestionePlayer {
             switch (tipo.toLowerCase()) {
                 case "video":
                     System.out.println("Inserisci la durata (in minuti): ");
-                    int durataVideo = sc.nextInt();
+                    int durata = sc.nextInt();
                     System.out.println("Inserisci la luminosità (0-10): ");
-                    int luminositàVideo = sc.nextInt();
+                    int luminosità = sc.nextInt();
                     System.out.println("Inserisci il volume (0-10): ");
-                    int volumeVideo = sc.nextInt();
+                    int volume = sc.nextInt();
                     sc.nextLine();
-                    lista[i] = new Video(titolo, durataVideo, luminositàVideo, volumeVideo);
+                    lista[i] = new Video(titolo, durata, luminosità, volume);
                     break;
 
                 case "audio":
@@ -63,8 +63,7 @@ public class GestionePlayer {
                 System.out.println("Programma chiuso!");
                 sc.close();
                 break;
-            }
-            if (scelta >= 1 && scelta <= lista.length) {
+            } else if (scelta >= 1 && scelta <= lista.length) {
                 elementiMultimediali elementoScelto = lista[scelta - 1];
 
 
@@ -84,7 +83,7 @@ public class GestionePlayer {
 
                 }
             } else {
-                System.out.println("Numero non valido. Riprova.");
+                System.out.println("elemento non valido. Riprova.");
             }
             System.out.println("digita un numero da 1 a " + lista.length + " per riprodurlo oppure 0 per terminare:");
         }
